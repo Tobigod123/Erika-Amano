@@ -24,7 +24,7 @@ def time_formatter(milliseconds: int) -> str:
         return tmp[:-1]
     else:
         return tmp
- 
+
 def humanbytes(size):
     if size in [None, ""]:
         return "0 B"
@@ -33,8 +33,8 @@ def humanbytes(size):
             break
         size /= 1024
     return f"{size:.2f} {unit}"
-   
-async def ffmpeg_progress(cmd, file, progress, now, send_msg, ps_name,log=None):
+
+async def ffmpeg_progress(cmd, file, progress, now, send_msg, ps_name, log=None):
     total_frames = tf(file)
     with open(progress, "w") as fk:
         pass
@@ -61,17 +61,17 @@ async def ffmpeg_progress(cmd, file, progress, now, send_msg, ps_name,log=None):
                     round(per, 2),
                 )
                 e_size = humanbytes(size) + " of ~" + humanbytes((size / per) * 100)
-eta = time_formatter(some_eta)
-try:
-    await send_msg.edit(
-        f'{ps_name}\n{progress_str}' + f'encoding: {e_size}\n\nETA: {eta}',
-        reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("Owner", url='https://t.me/ninja_obito_sai')],
-            [InlineKeyboardButton("Channel", url='https://t.me/AnimeZenith')]
-        ])
-    )
-except Exception as e:
-    LOG.warn(f'Error While Editing FFMPEG Status {e}')
+                eta = time_formatter(some_eta)
+                try:
+                    await send_msg.edit(
+                        f'{ps_name}\n{progress_str}' + f'encoding: {e_size}\n\nETA: {eta}',
+                        reply_markup=InlineKeyboardMarkup([
+                            [InlineKeyboardButton("Owner", url='https://t.me/ninja_obito_sai')],
+                            [InlineKeyboardButton("Channel", url='https://t.me/AnimeZenith')]
+                        ])
+                    )
+                except Exception as e:
+                    LOG.warn(f'Error While Editing FFMPEG Status {e}')
 
-if log is not None:
-    await log.edit(f'{ps_name}\n\n{progress_str}' + f'**encoding:** `{e_size}`\n**ETA:** `{eta}')
+                if log is not None:
+                    await log.edit(f'{ps_name}\n\n{progress_str}' + f'**encoding:** `{e_size}`\n**ETA:** `{eta}')
