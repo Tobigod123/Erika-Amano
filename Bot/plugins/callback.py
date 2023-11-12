@@ -76,15 +76,15 @@ BUTTONS_VCODEC = IKM(
 BUTTONS_DEV = IKM(
     [
         [
-            IKB('ᴅᴇᴠᴇʟᴏᴘᴇʀ', url='https://t.me/sohailkhan_indianime'),
-            IKB('ɢɪᴛʜᴜʙ', url = 'https://github.com/soheru')
+            IKB('ᴅᴇᴠᴇʟᴏᴘᴇʀ', url='https://t.me/ninja_obito_sai'),
+            IKB('ɢɪᴛʜᴜʙ', url = 'https://t.me/ninja_obito_sai')
         ],
         [
-            IKB('ᴡᴇʙsɪᴛᴇ', url='https://teamyokai.tech'),
-            IKB('ᴄʜᴀɴɴᴇʟ', url='https://t.me/aboutmesk'),
+            IKB('ᴡᴇʙsɪᴛᴇ', url='https://t.me/ninja_obito_sai'),
+            IKB('ᴄʜᴀɴɴᴇʟ', url='https://t.me/ninja_obito_sai'),
         ],
         [
-            IKB('ɪɴsᴛᴀɢʀᴀᴍ', url='https://instagram.com/_soheru'),
+            IKB('ɪɴsᴛᴀɢʀᴀᴍ', url='https://t.me/ninja_obito_sai'),
             IKB('ʜᴇʟᴘ', 'answer_help')
         ]
     ]
@@ -264,7 +264,7 @@ async def start_(client: Client, message: Message):
     images = os.listdir('./wallpapers')
     await message.reply_photo(
         photo= f'./wallpapers/{random.choice(images)}',
-        caption = f'**Hi There** `{message.from_user.first_name}`,\n\nI am a video encoder bot, which reduces the size of the video and gives it in good quality.\nTo see all my features, click the buttons below',
+        caption = f'**Hi There** `{message.from_user.first_name}`,\n\nI am a video encoder bot, which reduces the size of the video and gives it in good quality.\nTo see all my features, click the buttons below my owner :- @ninja_obito_sai',
         reply_markup=IKM(
             [
                 [
