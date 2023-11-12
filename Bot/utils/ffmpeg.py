@@ -72,5 +72,6 @@ try:
     )
 except Exception as e:
     LOG.warn(f'Error While Editing FFMPEG Status {e}')
+
 if log is not None:
     await log.edit(f'{ps_name}\n\n{progress_str}' + f'**encoding:** `{e_size}`\n**ETA:** `{eta}')
